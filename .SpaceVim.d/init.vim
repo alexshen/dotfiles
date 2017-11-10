@@ -54,6 +54,10 @@ let g:spacevim_custom_plugins = [
 let g:spacevim_colorscheme = 'NeoSolarized'
 let g:spacevim_enable_guicolors = 0
 
+if has('win32')
+	let g:spacevim_guifont = 'Consolas:h10'
+endif
+
 function! CreateDirIfNotExist(dir)
     if ! isdirectory(a:dir)
         call mkdir(a:dir)
