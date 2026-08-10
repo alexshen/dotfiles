@@ -1,0 +1,22 @@
+node_modules/
+.git/
+build/
+dist/
+target/
+DerivedData/
+*.o
+*.a
+*.so
+*.dylib
+*.png
+*.jpg
+*.zip
+*.swp
+
+# 大日志
+*.log
+
+# 编译产物
+.cache/
+tmp/
+coverage/
