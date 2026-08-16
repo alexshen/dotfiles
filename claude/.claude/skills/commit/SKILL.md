@@ -16,13 +16,5 @@ Procedure
    - Tell the user there is nothing to commit.
    - Stop.
 7. Generate a concise commit message that reflects ALL staged changes.
-8. Show the proposed commit message.
-9. Ask the user:
-   "Confirm commit? [y/n]"
-10. Wait for the user's response.
-11. If the user responds with "y" or "yes":
-    - Immediately run:
-      git commit -m "<proposed commit message>"
-    - Do not ask for any further confirmation.
-12. If the user responds with "n" or "no":
-    - Cancel the commit.
+8. Run immediately — do not ask the user to confirm first:
+   git commit -m "<proposed commit message>"
