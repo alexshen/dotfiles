@@ -125,15 +125,17 @@ For each chapter in order:
    or `.vault-meta/transactions/<id>/journal.json`, then WRITE durable state
    before anything else: set `pending_operation_id`, leave `current_index`
    unchanged (this chapter is now in flight).
-3. End the turn with the compact cue as the literal last line, so the CLI
-   predicts the context reset as ghost text:
+3. End the turn. After writing state, output **nothing else** — no summary, no
+   confirmation, no progress note. The very last line of your response must be
+   exactly:
 
    `This is a good point to compact.`
 
-   Do NOT run or emit `/compact` yourself. The user accepts the predicted
-   suggestion (Tab or Right-arrow, then Enter) and replies "continue". With the
-   `confirm-compact` argument, instead pause and ask the user to run `/compact`
-   explicitly, then wait for "continue".
+   This is a hard stop. Do NOT write any text after this line. Do NOT run or
+   emit `/compact` yourself. The user accepts the predicted suggestion (Tab or
+   Right-arrow, then Enter) and replies "continue". With the `confirm-compact`
+   argument, instead pause and ask the user to run `/compact` explicitly, then
+   wait for "continue".
 4. On the resumed turn, re-read this file if its instructions were lost, then:
    a. Read `.vault-meta/ingest-chapters/state-<slug>.json`.
    b. Checkpoint the pending operation (from state, or rediscovered):
